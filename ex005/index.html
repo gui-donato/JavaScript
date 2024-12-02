@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criando Dom</title>
+    <style>
+        div{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2em;
+            background-color:green;
+            color: white;
+            height: 200px;
+            width: 200px;
+            text-align: center;
+            line-height: 200px;
+        
+        }
+    </style>
+</head>
+<body>
+    <div id="area">
+        Interaja..
+    </div>
+        <script>
+             var a = window.document.getElementById('area')
+             a.addEventListener('click', clicar)
+             a.addEventListener('mouseenter', entrar)
+             a.addEventListener('mouseout', Sair)
+            function clicar() {
+               
+                a.innerText = 'Clicou'
+                a.style.backgroundColor= 'red'
+
+            }
+            function entrar(){
+                a.innerText ='Entrou'
+            }
+            function Sair(){
+                a.innerText = 'Saiu'
+                a.style.backgroundColor='green'
+            }
+        </script>
+</body>
+</html>

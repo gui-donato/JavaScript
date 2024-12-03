@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de cidadania</title>
+</head>
+<body>
+    <h1>O que você é ?</h1>
+     Onde você nasceu <input type="text" id="txt1"> ? <input type="button" value="Restultado" onclick="calcular()">
+     <div id="res"></div>
+     <script>
+        function calcular(){
+            var pais = window.document.querySelector('input#txt1').value
+            var res = window.document.querySelector('div#res')
+            pais = pais.charAt(0).toUpperCase() + pais.slice(1).toLowerCase();
+            
+            res.innerHTML = '<p> parabéns você é <strong> brasileiro </strong> </P>'
+            if (pais != 'Brasil'){ 
+                res.innerHTML = '<p> parabéns você é <strong> estrangeiro </strong> </P>'
+            }
+
+        }
+     </script>
+
+    
+</body>
+</html>

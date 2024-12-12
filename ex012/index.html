@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem</title>
+    <style>
+        body {
+            background-color: rgb(107, 156, 230)
+        }
+
+        header {
+            font-size: 3em;
+            color: white;
+            text-align: center;
+        }
+
+        section {
+            background-color: white;
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 8px;
+        }
+
+        div {
+            text-align: left;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+    <section>
+        <div id="i"><strong>Inicio:</strong> <input type="number" name="inicio" id="inicio"></div>
+        <div id="f"><strong>Fim:</strong> <input type="number" name="fim" id="fim"></div>
+        <div id="p"><strong>Passo:</strong> <input type="number" name="passo" id="passo"></div>
+        <div><input type="button" value="contar" onclick="contar()"></div>
+        <div id="res"></div>
+    </section>
+    <script>
+        function contar() {
+            var ini = document.querySelector('input#inicio');
+            var fi = document.querySelector('input#fim');
+            var p = document.querySelector('input#passo');
+            var res = document.querySelector('#res'); // Adicionei essa linha
+
+            var n1 = Number(ini.value);
+            var n2 = Number(fi.value);
+            var n3 = Number(p.value);
+
+            if (n1 && n2 && n3) { // Validação
+                var s = '';
+                for (var i = n1; i <= n2; i += n3) {
+                    s += i + ' ';
+                }
+                res.innerHTML = s;
+            } else {
+                alert('Preencha todos os campos corretamente!');
+            }
+        }
+    </script>
+</body>
+
+</html>

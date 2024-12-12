@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vamos Contar</title>
+  <style>
+    ody {
+  background-color: rgb(107, 156, 230);
+  font-family: Arial, sans-serif;
+}
+
+header {
+  font-size: 3em;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+section {
+  background-color: white;
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="number"] {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+#res {
+  margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  section {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    width: 90%;
+  }
+  input[type="number"] {
+    height: 25px;
+  }
+  button {
+    height: 30px;
+  }
+}
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Vamos Contar</h1>
+  </header>
+  <section>
+    <div id="i">
+      <label for="inicio"><strong>Início:</strong></label>
+      <input type="number" id="inicio" required>
+    </div>
+    <div id="f">
+      <label for="fim"><strong>Fim:</strong></label>
+      <input type="number" id="fim" required>
+    </div>
+    <div id="p">
+      <label for="passo"><strong>Passo:</strong></label>
+      <input type="number" id="passo" required>
+    </div>
+    <div>
+      <button id="btn-contar" onclick="contar()">Contar</button>
+    </div>
+    <div id="res"></div>
+  </section>
+  <script>
+
+function contar() {
+  const inicio = document.getElementById('inicio');
+  const fim = document.getElementById('fim');
+  const passo = document.getElementById('passo');
+  const res = document.getElementById('res');
+
+  const n1 = parseInt(inicio.value);
+  const n2 = parseInt(fim.value);
+  const n3 = parseInt(passo.value);
+
+  if (!isNaN(n1) && !isNaN(n2) && !isNaN(n3) && n1 <= n2 && n3 > 0) {
+    let s = '';
+    for (let i = n1; i <= n2; i += n3) {
+      s += i + ' ';
+    }
+    res.innerHTML = 'Resultado: ' + s;
+  } else {
+    alert('Preencha todos os campos corretamente!');
+  }
+}
+  </script>
+</body>
+</html>

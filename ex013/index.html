@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de tabuada</title>
+    <style>
+        body {
+            background-color: rgb(107, 156, 230)
+        }
+
+        header {
+            font-size: 3em;
+            color: white;
+            text-align: center;
+        }
+
+        section {
+            background-color: white;
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 8px;
+        }
+
+        div {
+            text-align: left;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Gerdador de tabuada</h1>
+    </header>
+    <section>
+        <div>
+            <p>Número: <input type="number" name="num" id="num">
+                <input type="button" value="Gerar" onclick="gerar()">
+            </p>
+
+            <p style="padding: 10px;">Digite um número acima</p>
+
+            <div id="res"></div>
+
+            <script>
+                function gerar() {
+                    var n1 = document.querySelector('input#num').value;  // Pega o valor digitado
+                    var res = document.querySelector('#res');
+
+                    // Função para gerar a tabuada
+                    function gerarTabuada(numero) {
+                        res.innerHTML = ''; // Limpar resultados anteriores
+                        for (let i = 1; i <= 10; i++) {
+                            // Adiciona cada linha de multiplicação ao conteúdo da div 'res'
+                            res.innerHTML += `${numero} x ${i} = ${numero * i}<br>`;
+                        }
+                    }
+
+                    // Chama a função passando o número digitado
+                    gerarTabuada(Number(n1));
+                }
+            </script>
+</body>
+
+</html>

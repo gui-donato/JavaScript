@@ -53,18 +53,18 @@
             var p = document.querySelector('input#passo');
             var res = document.querySelector('#res'); // Adicionei essa linha
 
-            var n1 = Number(ini.value);
-            var n2 = Number(fi.value);
-            var n3 = Number(p.value);
 
-            if (n1 && n2 && n3) { // Validação
-                var s = '';
-                for (var i = n1; i <= n2; i += n3) {
-                    s += i + ' ';
-                }
-                res.innerHTML = s;
+
+            if (ini.value.length == 0 || fi.value.length == 0 || p.value.length == 0) {
+                alert('Preencha todos os campos corretamente!')
             } else {
-                alert('Preencha todos os campos corretamente!');
+                var n1 = Number(ini.value);
+                var n2 = Number(fi.value);
+                var n3 = Number(p.value);   
+                for (var i = n1; i <= n2; i += n3) {
+                    res.innerHTML += i + '\u{1f603}';
+                }
+
             }
         }
     </script>

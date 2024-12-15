@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisando números</title>
+    <style>
+      body {
+        text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: aquamarine;
+    margin: 0;
+    padding: 0;
+}
+
+#p {
+    background-color: white;
+    height: auto;
+    width: 450px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input, button, select {
+    margin: 10px 0;
+    padding: 8px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    height: auto;
+}
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Analisador de números</h1>
+    </header>
+    <section>
+        <div id="p">
+            <p>Número (entre 1 a 100): 
+                <input type="number" name="num" id="num" min="1" max="100" />
+                <input type="button" value="Adicionar" onclick="adicionarNumero()">
+            </p>
+        </div>
+        <div>
+            <select id="selectBox" size="10">
+                <!-- As opções serão adicionadas aqui -->
+            </select>
+        </div>
+    </section>
+    
+    <script>
+      function adicionarNumero() {
+    const input = document.getElementById('num');  // Pegando o input com o número digitado
+    const numero = input.value.trim();  // Remover espaços extras
+
+    // Verificar se o número está entre 1 e 100 e é válido
+    if (numero !== "" && !isNaN(numero) && numero >= 1 && numero <= 100) {
+        // Criar uma nova opção (option) com o número
+        const option = document.createElement('option');
+        option.value = numero;  // O valor do option será o número
+        option.textContent = numero;  // O texto mostrado na lista será o número
+
+        // Adicionar essa opção à caixa select
+        const select = document.getElementById('selectBox');
+        select.appendChild(option);  // Adiciona a opção à lista do select
+
+        // Limpar o campo de entrada após adicionar
+        input.value = '';
+    } else {
+        alert("Por favor, insira um número válido entre 1 e 100.");
+    }
+}
+    </script>
+</body>
+</html>
